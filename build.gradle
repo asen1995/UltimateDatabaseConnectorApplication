@@ -16,7 +16,12 @@ dependencies {
 
     implementation "org.springframework.boot:spring-boot-starter:$spring_boot"
     implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot"
-    implementation "org.springframework.boot:spring-boot-starter-data-elasticsearch:$spring_boot"
+    implementation "org.springframework.boot:spring-boot-starter-jdbc:$spring_boot"
+
+
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    implementation 'org.mariadb.jdbc:mariadb-java-client:1.5.7'
+
 
     //Swagger dependencies
     implementation "io.springfox:springfox-swagger2:$springfox"
