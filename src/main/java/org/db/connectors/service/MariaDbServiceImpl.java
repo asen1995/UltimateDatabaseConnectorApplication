@@ -16,4 +16,9 @@ public class MariaDbServiceImpl implements MariaDbService {
         mariaDbRepository.insertMariaDbModel(product);
         return null;
     }
+
+    @Override
+    public Product getProductById(String productId) {
+        return mariaDbRepository.getProductById(productId);
+    }
 }

@@ -12,10 +12,12 @@ import java.nio.charset.StandardCharsets;
 public class SQLResources {
 
     public static String CREATE_PRODUCT_MARIA_DB;
+    public static String GET_PRODUCT_BY_ID_MARIA_DB;
 
     static {
         try {
             CREATE_PRODUCT_MARIA_DB = readFully("/mariaDB/sql/crud/insert_product.sql");
+            GET_PRODUCT_BY_ID_MARIA_DB = readFully("/mariaDB/sql/crud/get_product_by_id.sql");
         } catch (Exception e) {
             throw new RuntimeException("Error occured reading sql resources " + e.getMessage());
         }
