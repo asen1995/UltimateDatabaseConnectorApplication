@@ -8,5 +8,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MariaDbModel {
-    private int databaseVersion;
+    private int productId;
+    private String productName;
 }
