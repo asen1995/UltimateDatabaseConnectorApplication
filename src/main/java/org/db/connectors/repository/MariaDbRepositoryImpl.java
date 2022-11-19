@@ -1,7 +1,7 @@
 package org.db.connectors.repository;
 
-import org.db.connectors.SqlUtils;
-import org.db.connectors.model.MariaDbModel;
+import org.db.connectors.SQLResources;
+import org.db.connectors.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -14,12 +14,12 @@ public class MariaDbRepositoryImpl implements MariaDbRepository {
     NamedParameterJdbcTemplate jdbcTemplate;
 
     @Override
-    public void insertMariaDbModel(MariaDbModel mariaDbModel) {
+    public void insertMariaDbModel(Product product) {
         final MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("productId", mariaDbModel.getProductId());
-        paramSource.addValue("product_name", mariaDbModel.getProductName());
+        paramSource.addValue("productId", product.getProductId());
+        paramSource.addValue("product_name", product.getProductName());
 
-        jdbcTemplate.update(SqlUtils.CREATE_PRODUCT_MARIA_DB, paramSource);
+        jdbcTemplate.update(SQLResources.CREATE_PRODUCT_MARIA_DB, paramSource);
 
     }
 }

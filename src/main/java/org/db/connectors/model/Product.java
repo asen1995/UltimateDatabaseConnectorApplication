@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class MariaDbModel {
+public class Product {
     private int productId;
     private String productName;
 }

@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 @Component
-public class SqlUtils {
+public class SQLResources {
 
     public static String CREATE_PRODUCT_MARIA_DB;
 
@@ -22,7 +22,7 @@ public class SqlUtils {
     }
 
     private static String readFully(String path) throws IOException {
-        InputStream in = SqlUtils.class.getResourceAsStream(path);
+        InputStream in = SQLResources.class.getResourceAsStream(path);
         InputStreamReader streamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(streamReader);
         StringBuilder queryBuilder = new StringBuilder();

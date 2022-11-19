@@ -1,7 +1,7 @@
 package org.db.connectors.service;
 
-import org.db.connectors.model.MariaDbModel;
+import org.db.connectors.model.Product;
 
 public interface MariaDbService {
-    String insertMariaDbModel(MariaDbModel mariaDbModel);
+    String insertMariaDbModel(Product product);
 }

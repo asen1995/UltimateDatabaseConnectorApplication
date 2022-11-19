@@ -1,7 +1,7 @@
 package org.db.connectors.repository;
 
-import org.db.connectors.model.MariaDbModel;
+import org.db.connectors.model.Product;
 
 public interface MariaDbRepository {
-    void insertMariaDbModel(MariaDbModel mariaDbModel);
+    void insertMariaDbModel(Product product);
 }

@@ -1,6 +1,6 @@
 package org.db.connectors.controller;
 
-import org.db.connectors.model.MariaDbModel;
+import org.db.connectors.model.Product;
 import org.db.connectors.service.MariaDbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +15,8 @@ public class MariaDbController {
     MariaDbService mariaDbService;
 
     @RequestMapping(value = "insertMariaDbModel", method = RequestMethod.POST)
-    public String insertMariaDbModel(@RequestBody MariaDbModel mariaDbModel) throws Exception {
-        return mariaDbService.insertMariaDbModel(mariaDbModel);
+    public String insertMariaDbModel(@RequestBody Product product) throws Exception {
+        return mariaDbService.insertMariaDbModel(product);
     }
 
 
