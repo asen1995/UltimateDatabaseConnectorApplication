@@ -8,7 +8,7 @@ import redis.clients.jedis.Jedis;
 @Repository
 public class ProductRedisRepositoryImpl implements ProductRedisRepository {
 
-    @Autowired
+    @Autowired(required = false)
     Jedis jedis;
 
     @Override
