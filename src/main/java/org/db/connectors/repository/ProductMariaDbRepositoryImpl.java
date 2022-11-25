@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MariaDbRepositoryImpl implements MariaDbRepository {
+public class ProductMariaDbRepositoryImpl implements ProductMariaDbRepository {
 
     @Autowired
     NamedParameterJdbcTemplate jdbcTemplate;
