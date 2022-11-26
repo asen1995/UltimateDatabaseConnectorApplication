@@ -6,4 +6,6 @@ public interface ProductRedisService {
     String insertRedisProduct(Product product);
 
     Product getProductById(String productId);
+
+    String deleteProduct(String productId);
 }

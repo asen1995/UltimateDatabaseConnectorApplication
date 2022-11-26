@@ -20,4 +20,9 @@ public class ProductRedisServiceImpl implements ProductRedisService {
     public Product getProductById(String productId) {
         return productRedisRepository.getProductById(productId);
     }
+
+    @Override
+    public String deleteProduct(String productId) {
+        return productRedisRepository.deleteProduct(productId);
+    }
 }

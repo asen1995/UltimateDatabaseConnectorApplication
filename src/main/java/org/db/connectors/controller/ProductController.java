@@ -25,14 +25,19 @@ public class ProductController {
         return productMariaDbService.getProductById(productId);
     }
 
-    @RequestMapping(value = "redis/insertProduct", method = RequestMethod.POST)
+    @RequestMapping(value = "redis/product", method = RequestMethod.POST)
     public String insertRedisProduct(@RequestBody Product product) {
         return productRedisService.insertRedisProduct(product);
     }
 
-    @RequestMapping(value = "redis/getProductByd", method = RequestMethod.GET)
+    @RequestMapping(value = "redis/product", method = RequestMethod.GET)
     public Product getRedisProduct(@RequestParam String productId) {
         return productRedisService.getProductById(productId);
+    }
+
+    @RequestMapping(value = "redis/product", method = RequestMethod.DELETE)
+    public String deleteRedisProduct(@RequestParam String productId) {
+        return productRedisService.deleteProduct(productId);
     }
 
 
