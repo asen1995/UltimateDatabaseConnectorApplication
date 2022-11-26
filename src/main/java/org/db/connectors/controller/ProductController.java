@@ -30,5 +30,10 @@ public class ProductController {
         return productRedisService.insertRedisProduct(product);
     }
 
+    @RequestMapping(value = "redis/getProductByd", method = RequestMethod.GET)
+    public Product getRedisProduct(@RequestParam String productId) {
+        return productRedisService.getProductById(productId);
+    }
+
 
 }

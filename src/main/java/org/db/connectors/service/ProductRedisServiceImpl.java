@@ -10,8 +10,14 @@ public class ProductRedisServiceImpl implements ProductRedisService {
 
     @Autowired
     ProductRedisRepository productRedisRepository;
+
     @Override
     public String insertRedisProduct(Product product) {
         return productRedisRepository.insertRedisProduct(product);
+    }
+
+    @Override
+    public Product getProductById(String productId) {
+        return productRedisRepository.getProductById(productId);
     }
 }

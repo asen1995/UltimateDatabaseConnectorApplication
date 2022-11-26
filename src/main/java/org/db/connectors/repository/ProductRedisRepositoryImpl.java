@@ -15,4 +15,13 @@ public class ProductRedisRepositoryImpl implements ProductRedisRepository {
     public String insertRedisProduct(Product product) {
         return jedis.set(String.valueOf(product.getProductId()), product.getProductName());
     }
+
+    @Override
+    public Product getProductById(String productId) {
+        final String productName = jedis.get(productId);
+        if (productName == null || productName.isEmpty()) {
+            throw new RuntimeException(String.format("Can't find product with productId %s ", productId));
+        }
+        return new Product(Integer.parseInt(productId), productName);
+    }
 }
