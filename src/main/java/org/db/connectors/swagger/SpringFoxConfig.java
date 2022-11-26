@@ -17,12 +17,24 @@ import java.util.Collections;
 public class SpringFoxConfig {
 
     @Bean
-    public Docket apiDocket() {
+    public Docket mariaDBApiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
+                .groupName("mariaDb api's")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("org.db.connectors"))
-                .paths(PathSelectors.any())
+                .paths((PathSelectors.ant("/mariaDB/**")))
+                .build().apiInfo(getApiInfo());
+    }
+
+    @Bean
+    public Docket redisApiDocket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .useDefaultResponseMessages(false)
+                .groupName("redis api's")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("org.db.connectors"))
+                .paths((PathSelectors.ant("/redis/**")))
                 .build().apiInfo(getApiInfo());
     }
 
