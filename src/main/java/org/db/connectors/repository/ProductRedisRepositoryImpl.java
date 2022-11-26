@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.JedisPool;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class ProductRedisRepositoryImpl implements ProductRedisRepository {
 
@@ -35,6 +38,13 @@ public class ProductRedisRepositoryImpl implements ProductRedisRepository {
             throw new RuntimeException(String.format("Can't find product with productId %s ", productId));
         }
         return new Product(Integer.parseInt(productId), productName);
+    }
+
+    @Override
+    public List<Product> getListProducts(String productListKey) {
+        return jedisPool.getResource().lrange(productListKey, 0, 1000).stream()
+                .map(productName -> new Product(0, productName))
+                .collect(Collectors.toList());
     }
 
     @Override

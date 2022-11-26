@@ -6,6 +6,8 @@ import org.db.connectors.repository.ProductRedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductRedisServiceImpl implements ProductRedisService {
 
@@ -20,6 +22,11 @@ public class ProductRedisServiceImpl implements ProductRedisService {
     @Override
     public Product getProductById(String productId) {
         return productRedisRepository.getProductById(productId);
+    }
+
+    @Override
+    public List<Product> getListProducts(String productListKey) {
+        return productRedisRepository.getListProducts(productListKey);
     }
 
     @Override
