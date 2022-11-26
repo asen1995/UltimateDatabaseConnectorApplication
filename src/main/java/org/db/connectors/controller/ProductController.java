@@ -1,6 +1,7 @@
 package org.db.connectors.controller;
 
 import org.db.connectors.model.Product;
+import org.db.connectors.model.RedisProductList;
 import org.db.connectors.service.ProductMariaDbService;
 import org.db.connectors.service.ProductRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class ProductController {
     @RequestMapping(value = "redis/product", method = RequestMethod.POST)
     public String insertRedisProduct(@RequestBody Product product) {
         return productRedisService.insertRedisProduct(product);
+    }
+
+    @RequestMapping(value = "redis/product/list", method = RequestMethod.POST)
+    public String insertRedisListProduct(@RequestBody RedisProductList redisProductList) {
+        return productRedisService.insertRedisListProduct(redisProductList);
     }
 
     @RequestMapping(value = "redis/product", method = RequestMethod.GET)

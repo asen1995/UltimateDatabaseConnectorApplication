@@ -1,6 +1,7 @@
 package org.db.connectors.repository;
 
 import org.db.connectors.model.Product;
+import org.db.connectors.model.RedisProductList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.JedisPool;
@@ -14,6 +15,17 @@ public class ProductRedisRepositoryImpl implements ProductRedisRepository {
     @Override
     public String insertRedisProduct(Product product) {
         return jedisPool.getResource().set(String.valueOf(product.getProductId()), product.getProductName());
+    }
+
+    @Override
+    public String insertRedisProducts(RedisProductList redisProductList) {
+        final Long lpush = jedisPool.getResource().lpush(redisProductList.getKey(), redisProductList.getProduct()
+                .stream().map(Product::getProductName)
+                .toArray(String[]::new));
+        if (lpush == 0) {
+            return String.format("product list with key %s can't be saved ! ", redisProductList.getKey());
+        }
+        return "SUCCESS";
     }
 
     @Override

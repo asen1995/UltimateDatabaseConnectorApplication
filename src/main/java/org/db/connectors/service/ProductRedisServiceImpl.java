@@ -1,6 +1,7 @@
 package org.db.connectors.service;
 
 import org.db.connectors.model.Product;
+import org.db.connectors.model.RedisProductList;
 import org.db.connectors.repository.ProductRedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,10 @@ public class ProductRedisServiceImpl implements ProductRedisService {
     @Override
     public String deleteProduct(String productId) {
         return productRedisRepository.deleteProduct(productId);
+    }
+
+    @Override
+    public String insertRedisListProduct(RedisProductList redisProductList) {
+        return productRedisRepository.insertRedisProducts(redisProductList);
     }
 }
