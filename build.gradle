@@ -27,6 +27,9 @@ dependencies {
     implementation 'redis.clients:jedis:2.8.1'
 
 
+    // https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+    implementation 'org.mongodb:mongo-java-driver:3.4.1'
+
     //Swagger dependencies
     implementation "io.springfox:springfox-swagger2:$springfox"
     implementation "io.springfox:springfox-boot-starter:$springfox"
