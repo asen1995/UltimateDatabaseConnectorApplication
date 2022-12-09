@@ -17,3 +17,5 @@ it defaults to localhost:6379
 Start server from mongod.exe
 
 start mongoshell from mongosh.exe (coming from different zip file since version 6.0)
+
+use mongo-java-driver
