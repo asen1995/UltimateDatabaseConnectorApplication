@@ -79,4 +79,6 @@ public class ProductRedisRepositoryImpl implements ProductRedisRepository {
     public String get(String key) {
         return jedisPool.getResource().get(key);
     }
+
+
 }
