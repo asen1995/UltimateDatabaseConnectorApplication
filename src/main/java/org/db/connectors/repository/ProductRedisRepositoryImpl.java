@@ -56,4 +56,19 @@ public class ProductRedisRepositoryImpl implements ProductRedisRepository {
         }
         return "SUCCESS";
     }
+
+
+    public String deleteProductList(String productListKey) {
+        final Long del = jedisPool.getResource().del(productListKey);
+
+        if (del != 1) {
+            return String.format("product list with %s don't exists", productListKey);
+        }
+        return "SUCCESS";
+    }
+
+    public String clearAll() {
+        jedisPool.getResource().flushAll();
+        return "SUCCESS";
+    }
 }
