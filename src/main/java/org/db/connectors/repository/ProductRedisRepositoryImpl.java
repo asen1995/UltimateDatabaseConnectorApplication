@@ -71,4 +71,12 @@ public class ProductRedisRepositoryImpl implements ProductRedisRepository {
         jedisPool.getResource().flushAll();
         return "SUCCESS";
     }
+
+    public boolean exists(String key) {
+        return jedisPool.getResource().exists(key);
+    }
+
+    public String get(String key) {
+        return jedisPool.getResource().get(key);
+    }
 }
