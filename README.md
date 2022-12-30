@@ -19,3 +19,9 @@ Start server from mongod.exe
 start mongoshell from mongosh.exe (coming from different zip file since version 6.0)
 
 use mongo-java-driver
+
+
+
+//SONAR
+
+./gradlew sonar -Dsonar.projectKey="ultimateDbConnector"  -Dsonar.host.url=http://localhost:9000  -Dsonar.login=sqp_94c71c58c3564e9c6ca53dbf431993a5817d9b92
